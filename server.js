@@ -6,7 +6,7 @@ let path = require('path');
 
 let port_num = 8080;
 
-let load_static_file = function (url, response) {
+let load_static_file = function (uri, response) {
     var tmp = uri.split('.');
     var type = tmp[tmp.length - 1];
     var filename = path.join(process.cwd(), uri);
@@ -65,13 +65,13 @@ io.sockets.on('connection', function(socket){
 
     //接続時にソケットIDをサーバーからクライアントに送る
     io.to(socket.id).emit('onConnect', {
-        socket_id: sockert.id
+        socket_id: socket.id
      });
 
      //ログインユーザ追加
      socket.on('onConnect', function (data){
          login_users[data.socket_id] = data.login_name;
-         consle.log(login_users);
+         console.log(login_users);
      });
 
      //チャットメッセージの同期
@@ -113,6 +113,6 @@ io.sockets.on('connection', function(socket){
         //ログインユーザから削除
         console.log(key);
         delete login_users[key];
-        consle.log(login_users);
+        console.log(login_users);
     });
 });
