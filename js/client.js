@@ -1,8 +1,8 @@
 'use strict';
 
-let socket = null;
-let my_login_name = '';
-let my_socket_id = '';
+var socket = null;
+var my_login_name = '';
+var my_socket_id = '';
 
 $(function(){
     //ログイン画面表示
