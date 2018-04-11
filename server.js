@@ -7,7 +7,7 @@ let path = require('path');
 let port_num = 8080;
 
 let load_static_file = function (url, response) {
-    var tmp = uri.split(',');
+    var tmp = uri.split('.');
     var type = tmp[tmp.length - 1];
     var filename = path.join(process.cwd(), uri);
 
