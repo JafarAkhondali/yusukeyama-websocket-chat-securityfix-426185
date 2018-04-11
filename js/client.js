@@ -14,7 +14,7 @@ $(function(){
         
         my_login_name = $('#login_name').val();
 
-        if(s("#loginForm").valid() === true){
+        if($("#loginForm").valid() === true){
             //チャット画面表示
             $('#loginForm').hide();
             $('#chatForm').show();
@@ -53,7 +53,7 @@ $(function(){
 
 //チャットメッセージ追加
 function appendChat(message, position, login_name){
-    $('#chatLogs').append('<div class="' + position + '_baloon">' + message + '</div>');
+    $('#chatLogs').append('<div class="' + position + '_balloon">' + message + '</div>');
     //末尾にスクロール
     $('html,body').animate({
         scrollTop: $('#bottomDiv').offset().top
@@ -77,7 +77,7 @@ function initSocket(){
     });
 
     //チャットメッセージの同期
-    socket.on('join', function(data){
+    socket.on('say', function(data){
         if(my_socket_id !== data.socket_id){
             appendChat(data.chat_message, 'left', data.login_name);
         } else {
@@ -103,7 +103,7 @@ function initSocket(){
         appendChat(data.login_name + 'さんがログアウトしました。', 'left', '');
     });
 
-    //他ユーザログインしたことをサーバへ通知する
+    //ログインしたことをサーバへ通知する
     socket.emit('join',{
         login_name: my_login_name
     });
@@ -126,4 +126,4 @@ $("#loginForm").validate(
             login_name: "ログイン名を入力してください"
         }
     }
-)
+);
