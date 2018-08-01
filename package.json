@@ -1,18 +1,23 @@
 {
-  "name": "socketio-express",
+  "name": "webchat-socket-io",
   "version": "1.0.0",
+  "description": "http://socket.io/docs/",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "drumath2237",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
-    "socket.io": "^2.1.0"
+    "socket.io": "^1.7.4"
   },
-  "devDependencies": {},
-  "description": ""
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusukeyama/websocket-chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yusukeyama/websocket-chat/issues"
+  },
+  "homepage": "https://github.com/yusukeyama/websocket-chat#readme"
 }
