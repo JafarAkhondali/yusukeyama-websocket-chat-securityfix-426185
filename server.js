@@ -11,6 +11,12 @@ let load_static_file = function (uri, response) {
     var type = tmp[tmp.length - 1];
     var filename = path.join(process.cwd(), uri);
 
+    if (path.normalize(decodeURI(uri)) !== decodeURI(uri)) {
+        response.writeHead(403);
+        response.end();
+        return;
+    }
+
     fs.exists(filename, function (exists){
         if(!exists){
             response.writeHead(404, { 'Content-Type': 'text/plain'});
